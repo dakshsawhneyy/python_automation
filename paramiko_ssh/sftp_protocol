@@ -1,0 +1,16 @@
+import paramiko
+
+ssh = paramiko.SSHClient()
+ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+ssh.connect('10.0.0.1', username='admin', key_filename='mykey.pem')
+
+# SFTP is a subsystem of SSH
+sftp = ssh.open_sftp()
+
+# Upload local 'app.py' to remote '/tmp/app.py'
+sftp.put('app.py', '/tmp/app.py')
+
+print("Upload successful!")
+
+sftp.close()
+ssh.close()
