@@ -1,0 +1,8 @@
+log_file = "./app.log"
+# Log Rotation
+if os.path.exists(log_file):
+    os.rename(log_file, f"app_{date.today()}.log")
+    print("logfile rotated successfully")
+    
+# Create new app.log
+open("app.log", "w").close()    # creating empty file
