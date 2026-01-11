@@ -7,6 +7,14 @@ logging.basicConfig(
     datefmt='%Y-%m-%d %H:%M:%S'
 )
 
+
+# if want to output logs to a file
+logging.basicConfig(
+    filename='deploy.log', 
+    level=logging.INFO,
+    format='%(asctime)s - %(levelname)s - %(message)s'
+)
+
 logging.debug("This is a debug message.")
 logging.info("This is an info message.")
 logging.warning("This is a warning message.")
