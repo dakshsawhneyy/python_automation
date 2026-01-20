@@ -15,5 +15,6 @@ t2 = threading.Thread(target=worker, args=("B",))
 t1.start()
 t2.start()
 
+# Now join the commands
 t1.join()
 t2.join()
